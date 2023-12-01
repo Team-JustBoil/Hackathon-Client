@@ -1,0 +1,17 @@
+.book-mark {
+    width: 30px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 350px;
+}
+.progress-bar-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    height: 5px;
+    margin-top: 0px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #ED7D31;
+}

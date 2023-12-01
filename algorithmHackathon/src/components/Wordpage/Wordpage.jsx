@@ -1,5 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import TextShow from '../TextShow/TextShow';
+import './Wordpage.css';
 
 const Wordpage = () => {
   const location = useLocation();
@@ -11,9 +13,8 @@ const Wordpage = () => {
   console.log('Read Speed:', readSpeed);
 
   return (
-    <div className="page">
-      <h2>Wordpage</h2>
-      <p>Learn more about us.</p>
+    <div className="wordpage">
+      <TextShow text={text} readState={readState} readSpeed={readSpeed}/>
     </div>
   );
 };

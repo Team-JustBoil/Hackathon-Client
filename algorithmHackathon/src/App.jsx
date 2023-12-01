@@ -17,15 +17,6 @@ const App = () => {
               <li>
                 <Link to="/">Home</Link>
               </li>
-              <li>
-                <Link to="/wordpage">Word</Link>
-              </li>
-              <li>
-                <Link to="/sentence">Sentence</Link>
-              </li>
-              <li>
-                <Link to="/resultpage">Resultpage</Link>
-              </li>
             </ul>
           </nav>
         </header>

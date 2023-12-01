@@ -1,6 +1,8 @@
 // src/components/About.jsx
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import TextShow from '../TextShow/TextShow';
+import './Sentence.css';
 
 const Sentence = () => {
     const location = useLocation();
@@ -12,9 +14,8 @@ const Sentence = () => {
     console.log('Read Speed:', readSpeed);
 
   return (
-    <div className="page">
-      <h2>Sentence</h2>
-      <p>Learn more about us.</p>
+    <div className="sentence">
+      <TextShow text={text} readState={readState} readSpeed={readSpeed}/>
     </div>
   );
 };

@@ -1,0 +1,7 @@
+.sentence {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    height: 100%; /* 전체 뷰포트 높이 */
+  }
