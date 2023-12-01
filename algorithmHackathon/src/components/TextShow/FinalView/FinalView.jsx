@@ -25,7 +25,7 @@ function FinalView({saveIndex,array}) {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('final loading');
+            console.log('final loading',data);
             setTopArray(data.keywords);
         })
         .catch(error => {
