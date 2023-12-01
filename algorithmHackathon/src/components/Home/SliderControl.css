@@ -1,0 +1,20 @@
+/* 추가 또는 수정된 부분 */
+.slider-container {
+    position: relative;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+  
+  .tooltip {
+    position: absolute;
+    bottom: calc(100% + 5px); /* Adjusted to position above the slider */
+    left: 43%; /* Center the tooltip horizontally */
+    transform: translateX(-50%); /* Center the tooltip horizontally */
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  
