@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import './WordShow.css'
+import FinalView from '/Users/hellosj00/Desktop/SKKU/Semester/Sophomore/Sophoemore-2/알고리즘/hackaton/algorithmHackaton/Hackathon-Client/src/Components/TextShow/FinalView/FinalView.jsx';
 
-function WordShow({ text, currentWordIndex, incrementWordIndex, readSpeed,isTimerRunning, toggleTimer  }) {
+function WordShow({ text, currentWordIndex, incrementWordIndex, readSpeed,isTimerRunning, toggleTimer,onFinalView  }) {
     const [wordArray, setWordArray] = useState([]); // 단어리스트
     const [wordCount, setWordCount] = useState(0); // 사용되지 않는 상태일 수 있음
     const [isLoading, setIsLoading] = useState(false); // 로딩 상태 추가
     const [displayWord, setDisplayWord] = useState(''); // 화면에 표시될 단어
     const [saveIndex, setSaveIndex] = useState([]); // 선택된 인덱스들을 저장하는 상태
+    const [localFinalViewGo,setLocalFinalViewGo] = useState(false);
 
     // 진행률 계산
     const progressPercentage = wordCount > 0 ? (currentWordIndex / wordCount) * 100 : 0;
@@ -54,7 +56,7 @@ function WordShow({ text, currentWordIndex, incrementWordIndex, readSpeed,isTime
         if (wordArray.length > 0 && readSpeed > 0 && isTimerRunning && currentWordIndex < wordCount ) {
             timer = setInterval(() => {
                 incrementWordIndex();
-            }, readSpeed * 500);
+            }, (1/(readSpeed/60)) * 1000);
         }
 
         return () => clearInterval(timer);
@@ -75,20 +77,33 @@ function WordShow({ text, currentWordIndex, incrementWordIndex, readSpeed,isTime
           ? "src/Components/TextShow/SentenceShow/Bookmark1.png" // 저장된 인덱스 이미지
           : "src/Components/TextShow/SentenceShow/Bookmark0.png"; // 기본 이미지
 
-    return (
-        <>
-            <main>
-                <img src={imageSrc}  
-                      alt="" 
-                      className="book-mark"
-                      onClick={handleImageClick}  />
-                <div className="word-show"> {displayWord} </div> {/* 화면에 단어 표시 */}
-            </main>
-            <div className="progress-bar-container">
-                    <div className="progress-bar" style={{ width: `${progressPercentage}%` }}></div>
-            </div>
-        </>
-    );
+          useEffect(() => {
+            if (currentWordIndex === wordCount - 1) {
+                onFinalView(); // finalViewGo 상태를 true로 변경
+                setLocalFinalViewGo(true);
+            }
+        }, [currentWordIndex, wordCount, onFinalView]);
+        return (
+            <>
+                {localFinalViewGo ? (
+                    <FinalView 
+                    array={wordArray}
+                    saveIndex = {saveIndex}
+                    />
+                ) : (
+                    <main>
+                        <img src={imageSrc}  
+                              alt="" 
+                              className="book-mark"
+                              onClick={handleImageClick}  />
+                        <div className="word-show"> {displayWord} </div> {/* 화면에 단어 표시 */}
+                        <div className="progress-bar-container">
+                            <div className="progress-bar" style={{ width: `${progressPercentage}%` }}></div>
+                        </div>
+                    </main>
+                )}
+            </>
+            )
 }
 
 export default WordShow;

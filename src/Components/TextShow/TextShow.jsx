@@ -5,15 +5,19 @@ import SentenceShow from './SentenceShow/SentenceShow';
 import './TextShow.css'
 
 //받아와야 하는거 (speed , word sentence type)
-function TextShow({text,readState,readSpeed}) {
+function TextShow({text,readState,readSpeed}) { // 0이면 문장별 1이면 단어별
     const [howManyTime,setHowManyTime] = useState(0); // 단어 읽을 때 걸리는 시간
 
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [localReadSpeed,setLocalReadSpeed] = useState(readSpeed);
 
     const [isTimerRunning, setIsTimerRunning] = useState(true);
+    const [finalViewGo,setFinalViewGo] = useState(false);
 
-   
+   const handleFinalViewGo = () =>{
+    setFinalViewGo(true);
+    console.log('setFinalViewGo');
+   }
 
     const handleReadSpeed = (newReadSpeed) => {
         setLocalReadSpeed(newReadSpeed);
@@ -56,6 +60,7 @@ function TextShow({text,readState,readSpeed}) {
             text={text} 
             currentWordIndex={currentWordIndex}
             incrementWordIndex={incrementWordIndex}
+            onFinalView={handleFinalViewGo}
           />
         ) : (
           <WordShow 
@@ -65,8 +70,10 @@ function TextShow({text,readState,readSpeed}) {
             incrementWordIndex={incrementWordIndex}  
             isTimerRunning={isTimerRunning}
             toggleTimer={toggleTimer}
+            onFinalView={handleFinalViewGo}
             />
         )}
+         {!finalViewGo ? (
         <BottomBar 
             onHandleReadSpeed={handleReadSpeed} 
             readState={localReadSpeed}
@@ -77,6 +84,8 @@ function TextShow({text,readState,readSpeed}) {
             stopGoBtnRef={stopGoBtnRef}
             toggleTimer={toggleTimer}
         />
+    ) : null}
+
     </>
     );
 }

@@ -7,9 +7,8 @@ function App() {
 
   return (
     <>
-      <TextShow text={text} readState={1} readSpeed={1}/>
+      <TextShow text={text} readState={0} readSpeed={200}/>
     </>
   )
 }
-
 export default App
