@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from "react";
+import './FinalView.css'
 
 function FinalView({saveIndex,array}) {
     const [isLoading,setIsLoading] = useState(false);
@@ -38,16 +39,19 @@ function FinalView({saveIndex,array}) {
             console.log('z');
         })
     return (
-        <>
-            <p>축하합니다 완 독 하셨습니다. </p>
+        <div className="final-view-container" >
+            <div className="ggom"></div>
+            <p className="finish">🎉🎉 Congratulations 🎉🎉 </p>
 
-            <div>
+            <div className="final-house">
+                <span>Top 3</span>
                 {topArray && topArray.map((item, index) => (
                     <div key={index}>
                         {item}
                     </div>
                 ))}
-                <div>
+
+                    <span>북마크 목록</span>
                 {array.map((item, index) => {
                 // saveIndex에 현재 인덱스가 포함되어 있는지 확인
                 if (saveIndex.includes(index)) {
@@ -60,12 +64,10 @@ function FinalView({saveIndex,array}) {
                 return null; // 조건을 만족하지 않으면 렌더링하지 않음
             })}
         </div>
-            </div>
-
             <div>
-                내가 체크한 문장수 : {saveIndex.length}
+                북마크 개수 : {saveIndex.length}
             </div>
-        </>
+        </div>
     );
 }
 export default FinalView;

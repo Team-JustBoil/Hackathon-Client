@@ -14,6 +14,12 @@ body {
   align-items: center;
 }
 
+.logo {
+  width: 40px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px;
+}
+
 .app-container {
   display: flex; /* Flexbox 활성화 */
   flex-direction: column; /* 자식 요소들을 세로로 나열 */
@@ -23,7 +29,28 @@ body {
   height: 100vh;
 }
 
+.app-container header nav ul li a {
+  text-decoration: none; /* Remove default underline */
+  font-size: 24px;
+}
+
+.app-container header nav ul li a .gom {
+  color: white; /* Set the color for 'GOM' */
+  position: relative; /* 상대적 위치 지정 */
+  top: -12px; /* 원하는 만큼 위로 이동 */
+  font-weight: bold;
+}
+
+.app-container header nav ul li a .slayer {
+  color: #ED7D31; /* Set the color for 'SLAYER' */
+  position: relative; /* 상대적 위치 지정 */
+  top: -12px; /* 원하는 만큼 위로 이동 */
+  font-weight: bold;
+}
+
+
 header {
+  z-index: 1000;
   background-color: #000000;
   color: #fff;
   text-align: center;
@@ -32,16 +59,12 @@ header {
   width: 100%; /* app-container에 꽉 차게 설정 */
   max-width: 400px;
   margin: 0 auto; /* 화면 중앙 정렬 */
-  min-height: 80px;
+  min-height: 60px;
 }
 
 main {
   width: 100%;
-  height: calc(100% - 80px); /* Subtract the header height */
-}
-
-nav {
-  margin-top: 10px;
+  height: calc(100% - 60px); /* Subtract the header height */
 }
 
 nav ul {
@@ -49,10 +72,10 @@ nav ul {
   padding: 0;
   display: flex;
   justify-content: center;
-}
-
-nav li {
-  margin: 0 10px;
+  margin-top : 10px;
+  margin-bottom : 0px;
+  align-items: center;
+  text-align: center;
 }
 
 .page {

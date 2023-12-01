@@ -6,6 +6,7 @@ import Wordpage from './components/Wordpage/Wordpage';
 import Sentence from './components/Sentence/Sentence';
 import Resultpage from './components/Resultpage/Resultpage';
 import './App.css';
+import logo from './logo.png';
 
 const App = () => {
   return (
@@ -15,7 +16,10 @@ const App = () => {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/">
+                  <img src={logo} alt="Logo" className="logo" />
+                  <span className="gom">GOM</span> <span className="slayer">SLAYER</span>
+                </Link>
               </li>
             </ul>
           </nav>

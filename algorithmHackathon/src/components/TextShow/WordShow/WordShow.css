@@ -13,3 +13,19 @@
     height: 100%;
     background-color: blue;
 }
+
+.word-show{
+    max-width: 400px;
+    margin: 0 auto;
+}
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top:-130px;
+    font-size:1.5em;
+    color: white;
+    font-weight: bold;
+    font-family: 'Apple SD Gothic Neo Bold';
+}

@@ -46,7 +46,7 @@ function BottomBar({
                     <span>예상 시간: {0} {/* 수정 필요 */}</span>
                 </div>
         )}
-        <div>
+        <div className="btn-house">
             <button ref={backBtnRef} className="back" onClick={onBackButtonClick}></button>
             <button ref={stopgoBtnRef} className="stopGo" onClick={handleStopGoClick} >
                 <img className="stopGoImage" src={isPlaying ? playIcon : pauseIcon} alt={isPlaying ? '멈춤' : '재생'} />

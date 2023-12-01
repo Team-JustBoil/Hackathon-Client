@@ -43,13 +43,14 @@ const Home = () => {
         method: 'POST',
         body: formData,
         headers: {
-          'Content-Type': 'multipart/form-data',
+          // 'Content-Type': 'multipart/form-data',
           // 필요한 경우 추가 헤더를 추가하세요
-        },
+        }
       });
 
-      // 필요한 대로 응답을 처리하세요
-      console.log('파일 업로드 응답:', response);
+      const data = await response.json(); // JSON 데이터로 읽기
+      console.log('파일 업로드 응답:', data);
+      setTextareaValue(data.text);
     } catch (error) {
       console.error('파일 업로드 오류:', error);
     }
@@ -84,7 +85,6 @@ const Home = () => {
     <div className="home">
       <div className="content">
         <br />
-        <br />
         <textarea
           className="input"
           placeholder="텍스트를 입력하세요"
@@ -92,7 +92,7 @@ const Home = () => {
           onChange={handleTextareaChange}
         ></textarea>
         <div className="file-upload-container">
-          {selectedFile && <p>선택된 파일: {selectedFile.name}</p>}
+          {selectedFile && <p>{selectedFile.name}</p>}
           {/* 라벨 삭제 */}
           <img
             src={uploadIcon}

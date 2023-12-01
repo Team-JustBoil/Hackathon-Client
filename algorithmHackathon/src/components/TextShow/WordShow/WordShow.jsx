@@ -64,11 +64,13 @@ function WordShow({ text, currentWordIndex, incrementWordIndex, readSpeed,isTime
 
     const handleImageClick = () => {
         setSaveIndex(prevIndices => {
-            // 이미 저장된 인덱스가 아니라면 추가
-            if (!prevIndices.includes(currentWordIndex)) {
+            if (prevIndices.includes(currentWordIndex)) {
+                // 이미 저장된 인덱스라면 제거
+                return prevIndices.filter(index => index !== currentWordIndex);
+            } else {
+                // 저장되지 않은 인덱스라면 추가
                 return [...prevIndices, currentWordIndex];
             }
-            return prevIndices;
         });
         console.log(saveIndex,'saveIndex');
     };
@@ -92,14 +94,17 @@ function WordShow({ text, currentWordIndex, incrementWordIndex, readSpeed,isTime
                     />
                 ) : (
                     <main>
-                        <img src={imageSrc}  
-                              alt="" 
-                              className="book-mark"
-                              onClick={handleImageClick}  />
-                        <div className="word-show"> {displayWord} </div> {/* 화면에 단어 표시 */}
                         <div className="progress-bar-container">
                             <div className="progress-bar" style={{ width: `${progressPercentage}%` }}></div>
                         </div>
+                        <img src={imageSrc}  
+                                alt="" 
+                                className="book-mark"
+                                onClick={handleImageClick}  />
+                        <div className="center-container">
+                            <div className="word-show"> {displayWord} </div> {/* 화면에 단어 표시 */}
+                        </div>
+                        
                     </main>
                 )}
             </>

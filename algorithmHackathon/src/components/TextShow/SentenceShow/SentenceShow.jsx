@@ -110,7 +110,9 @@ function SentenceShow({ text, currentWordIndex ,incrementWordIndex,onFinalView }
                               alt="" 
                               className="book-mark"
                               onClick={handleImageClick}  />
-                        <div className="word-show"> {displaySentence} </div> {/* 화면에 단어 표시 */}
+                        <div className="center-container">
+                            <div className="word-show"> {displaySentence} </div> {/* 화면에 단어 표시 */}
+                        </div>
                     </main>
                 )}
         </>
