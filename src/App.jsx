@@ -1,33 +1,13 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import TextShow from './Components/TextShow/TextShow';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [text,setText] = useState("혼히 장사는 이익을 위해 물건을 사서 파는 행위로, 사업은 지속적으로 경영하는 것을 말한다. 하지만 나는 장사와 사업의 기준을 다른방식으로 구분해 정리하고 싶다. 내가 하는 사업이 장사냐 사업이냐를 구분할 때 기준은 사업의 규모가 아니다. 장사와 사업을 나누는 주요한 특징은 세 가지가 있다.첫째, 일에 대한 능력이다. 사장의 업무 능력이 직원들보다 뛰어나면 장사고, 직원들이 사장보다 뛰어나면 사업이다. 장사의 영역에 머무는 회사의 특징은 사장이 직원들보다 모든 업무를 월등하게 잘해서모든 직원을 가르치는 입장에 있다. 직원들보다 테이블도 야무지게잘 도, 음식도 잘 만들고, 홍보도 잘하면 장사다. 직원들보다 엑셀도 잘 다루고, 컴퓨터도 잘 고치고, 포스터 디자인도 잘하면 장사다.직원들보다 지게차도 잘 다루고, 근무 시간표도 잘 짜고, 구매 홍정도잘하면 장사다. 우리는 이런 사람을 다재다능하고 성실하고 유능한리더로 알고 있지만 결국 혼자 일하고, 자신을 대신할 인재를 키우지못하고 아무도 믿지 못하는 사람일 수 있다. 이런 사람들은 절대 사업의 영역으로 넘어가지 못한다.");
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <TextShow text={text} readState={1} readSpeed={1}/>
     </>
   )
 }
